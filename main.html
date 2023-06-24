@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <link rel="stylesheet" href="styleb.css">
+  <script src="index.js"></script>
+</head>
+<body>
+  <div class="container">
+      <a href="#" id="logout" class="logbtn">Logout</a>
+    <div id="title" class="center">
+      <h1 id="header" class="text-center mt-5">Welcome To Digital library</h1>
+      <div class="row">
+        <div id="input" class="input-group mx-auto col-lg-6 col-md-8 col-sm-12">
+          <input id="search-box" type="text" class="form-control" placeholder="Search Books!... by book name or ISBN number">
+          <button id="search" class="btn btn-primary" onclick="">Search</button>
+      </div>
+      </div>
+    </div>
+    <div class="book-list" >
+      <h2 class="text-center">Search Result</h2>
+      <div id="list-output" class="">
+        <div class="row">
+          <!-- card  -->
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+<script type="module">
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
+        import {GoogleAuthProvider,getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+  apiKey: "AIzaSyBsJYeUJiwza8GEuMsMM4ytPht3vrEmf5g",
+  authDomain: "devrev-c532d.firebaseapp.com",
+  projectId: "devrev-c532d",
+  storageBucket: "devrev-c532d.appspot.com",
+  messagingSenderId: "416866273096",
+  appId: "1:416866273096:web:00c298d8c9e8f45a3f957d",
+  measurementId: "G-HFS2NLHT4Q"
+};
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth(app);
+        const user = auth.currentUser;
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          // ...
+        } else {
+          // User is signed out
+          // ...
+          window.location ="index.html";
+        }
+      });
+          logout.addEventListener('click',(e)=>{
+      
+      signOut(auth).then(() => {
+        // Sign-out successful.
+        alert('user loged out');
+      }).catch((error) => {
+        // An error happened.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+   
+           alert(errorMessage);
+      });
+   
+   });
+</script>
+</html>

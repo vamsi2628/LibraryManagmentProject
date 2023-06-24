@@ -1,0 +1,40 @@
+body {
+    /* background-color: #76a9e0; */
+    background-image: url("ebooks.jpg");
+    background-color: #04b1c1;
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+ 
+  .center {
+    margin: auto;
+    margin-top: 200px;
+  }
+  
+  #header {
+    font-family: 'Georgia', sans-serif;
+    font-size: 3rem;
+    color: rgb(255, 255, 255);
+  }
+  
+  h2 {
+    font-family: 'Georgia', sans-serif;
+  }
+  
+  .book-list {
+    margin-top: 50px;
+    visibility: hidden;
+  }
+  
+  .logbtn:hover{
+    color: rgb(231, 171, 81);
+  }
+  .logbtn{
+    font-size: large;
+    color: aliceblue;
+    margin-left: 100%;
+  }
